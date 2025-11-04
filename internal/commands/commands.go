@@ -47,5 +47,10 @@ func GetCommandRegistry() map[string]cliCommand {
 			Description: "Get the previous page of locations",
 			Callback:    commandMapb,
 		},
+		"pokedex": {
+			Name:        "pokedex",
+			Description: "List all pokemon in the Pokedex",
+			Callback:    commandPokedex,
+		},
 	}
 }

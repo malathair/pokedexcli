@@ -8,6 +8,10 @@ import (
 )
 
 func commandMap(cfg *config.Config, args ...string) error {
+	if len(args) != 0 {
+		return errors.New("invalid number of arguments")
+	}
+
 	locationsResponse, err := cfg.PokeapiClient.ListLocations(cfg.NextLocationsURL)
 	if err != nil {
 		return err
@@ -23,6 +27,10 @@ func commandMap(cfg *config.Config, args ...string) error {
 }
 
 func commandMapb(cfg *config.Config, args ...string) error {
+	if len(args) != 0 {
+		return errors.New("invalid number of arguments")
+	}
+
 	if cfg.PrevLocationsURL == nil {
 		return errors.New("You're on the first page")
 	}
