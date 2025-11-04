@@ -32,6 +32,11 @@ func GetCommandRegistry() map[string]cliCommand {
 			Description: "Displays a help message",
 			Callback:    commandHelp,
 		},
+		"history": {
+			Name:        "history",
+			Description: "Displays the command history",
+			Callback:    commandHistory,
+		},
 		"inspect": {
 			Name:        "inspect <pokemon>",
 			Description: "View details about a captured pokemon",

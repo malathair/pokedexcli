@@ -40,13 +40,19 @@ func RunCli(cfg *config.Config) {
 
 		registry := commands.GetCommandRegistry()
 		command, ok := registry[commandName]
-		if !ok {
-			fmt.Println("Unknown command")
-			continue
+		appendToHistory := false
+		if ok {
+			appendToHistory = true
+		} else {
+			fmt.Println("Unknown command!")
+			command = registry["help"]
+			args = []string{}
 		}
 
 		if err := command.Callback(cfg, args...); err != nil {
 			fmt.Println(err)
+		} else if appendToHistory {
+			cfg.History.Append(strings.Join(userInput, " "))
 		}
 	}
 }

@@ -1,10 +1,14 @@
 package config
 
-import "github.com/malathair/pokedexcli/internal/pokeapi"
+import (
+	"github.com/malathair/pokedexcli/internal/history"
+	"github.com/malathair/pokedexcli/internal/pokeapi"
+)
 
 type Config struct {
-	PokeapiClient    *pokeapi.Client
+	CaughtPokemon    map[string]pokeapi.Pokemon
+	History          history.History
 	NextLocationsURL *string
 	PrevLocationsURL *string
-	CaughtPokemon    map[string]pokeapi.Pokemon
+	PokeapiClient    *pokeapi.Client
 }
