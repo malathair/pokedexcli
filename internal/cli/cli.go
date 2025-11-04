@@ -41,9 +41,7 @@ func RunCli(cfg *config.Config) {
 		registry := commands.GetCommandRegistry()
 		command, ok := registry[commandName]
 		if !ok {
-			fmt.Println()
 			fmt.Println("Unknown command")
-			fmt.Println()
 			continue
 		}
 
