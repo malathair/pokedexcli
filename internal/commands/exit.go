@@ -7,7 +7,7 @@ import (
 	"github.com/malathair/pokedexcli/internal/config"
 )
 
-func commandExit(cfg *config.Config) error {
+func commandExit(cfg *config.Config, args ...string) error {
 	fmt.Println()
 	fmt.Println("Closing the Pokedex... Goodbye!")
 	fmt.Println()

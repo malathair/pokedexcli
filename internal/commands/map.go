@@ -7,7 +7,7 @@ import (
 	"github.com/malathair/pokedexcli/internal/config"
 )
 
-func commandMap(cfg *config.Config) error {
+func commandMap(cfg *config.Config, args ...string) error {
 	locationsResponse, err := cfg.PokeapiClient.ListLocations(cfg.NextLocationsURL)
 	if err != nil {
 		return err
@@ -22,7 +22,7 @@ func commandMap(cfg *config.Config) error {
 	return nil
 }
 
-func commandMapb(cfg *config.Config) error {
+func commandMapb(cfg *config.Config, args ...string) error {
 	if cfg.PrevLocationsURL == nil {
 		return errors.New("You're on the first page")
 	}

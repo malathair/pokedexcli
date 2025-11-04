@@ -7,7 +7,7 @@ import (
 	"github.com/malathair/pokedexcli/internal/config"
 )
 
-func commandHelp(cfg *config.Config) error {
+func commandHelp(cfg *config.Config, args ...string) error {
 	fmt.Println()
 	fmt.Println("Usage:")
 
@@ -19,7 +19,7 @@ func commandHelp(cfg *config.Config) error {
 	sort.Strings(commands)
 
 	for _, command := range commands {
-		fmt.Printf("  %-10s %s\n", registry[command].Name, registry[command].Description)
+		fmt.Printf("    %-18s %s\n", registry[command].Name, registry[command].Description)
 	}
 
 	fmt.Println()

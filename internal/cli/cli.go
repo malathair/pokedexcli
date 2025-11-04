@@ -33,6 +33,10 @@ func RunCli(cfg *config.Config) {
 		}
 
 		commandName := userInput[0]
+		args := []string{}
+		if len(userInput) > 1 {
+			args = userInput[1:]
+		}
 
 		registry := commands.GetCommandRegistry()
 		command, ok := registry[commandName]
@@ -43,7 +47,7 @@ func RunCli(cfg *config.Config) {
 			continue
 		}
 
-		if err := command.Callback(cfg); err != nil {
+		if err := command.Callback(cfg, args...); err != nil {
 			fmt.Println(err)
 		}
 	}
