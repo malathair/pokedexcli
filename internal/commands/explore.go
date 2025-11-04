@@ -9,7 +9,7 @@ import (
 
 func commandExplore(cfg *config.Config, args ...string) error {
 	if len(args) != 1 {
-		return errors.New("Invalid number of arguments")
+		return errors.New("invalid number of arguments")
 	}
 
 	name := args[0]
@@ -18,7 +18,7 @@ func commandExplore(cfg *config.Config, args ...string) error {
 		return err
 	}
 
-	fmt.Printf("Exploring %s . . .\n", location.Name)
+	fmt.Printf("Exploring %s...\n", location.Name)
 	fmt.Println("Pokemon found in this area: ")
 
 	for _, enc := range location.PokemonEncounters {

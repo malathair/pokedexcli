@@ -12,6 +12,11 @@ type cliCommand struct {
 
 func GetCommandRegistry() map[string]cliCommand {
 	return map[string]cliCommand{
+		"catch": {
+			Name:        "catch <pokemon>",
+			Description: "Catch a pokemon",
+			Callback:    commandCatch,
+		},
 		"exit": {
 			Name:        "exit",
 			Description: "Exit the Pokedex",
